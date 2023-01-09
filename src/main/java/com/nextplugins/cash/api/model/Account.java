@@ -22,5 +22,4 @@ public class Account {
     public synchronized boolean hasAmount(double amount) {
         return this.balance >= amount;
     }
-
 }

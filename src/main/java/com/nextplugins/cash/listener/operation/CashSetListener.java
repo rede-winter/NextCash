@@ -29,15 +29,12 @@ public final class CashSetListener implements Listener {
             event.setCancelled(true);
             sender.sendMessage(MessageValue.get(MessageValue::invalidTarget));
             return;
-
         }
 
         targetAccount.setBalance(amount);
 
         sender.sendMessage(MessageValue.get(MessageValue::setAmount)
-            .replace("$player", targetAccount.getOwner())
-            .replace("$amount", NumberUtil.format(amount))
-        );
+                .replace("$player", targetAccount.getOwner())
+                .replace("$amount", NumberUtil.format(amount)));
     }
-
 }

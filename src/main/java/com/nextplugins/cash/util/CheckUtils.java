@@ -25,15 +25,14 @@ public final class CheckUtils {
         }
 
         val checkItem = new ItemBuilder(Material.valueOf(checkSection.getString("material")))
-            .name(ColorUtil.colored(checkSection.getString("display-name")))
-            .setLore(lore)
-            .changeItem(itemStack -> itemStack.setDurability((short) checkSection.getInt("data")))
-            .wrap();
+                .name(ColorUtil.colored(checkSection.getString("display-name")))
+                .setLore(lore)
+                .changeItem(itemStack -> itemStack.setDurability((short) checkSection.getInt("data")))
+                .wrap();
 
         val nbtItem = new NBTItem(checkItem);
         nbtItem.setDouble("NextCash_VALUE", checkValue);
 
         return nbtItem.getItem();
     }
-
 }

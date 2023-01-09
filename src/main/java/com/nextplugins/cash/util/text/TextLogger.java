@@ -24,5 +24,4 @@ public final class TextLogger {
     public void error(String message) {
         consoleSender.sendMessage(ChatColor.RED + PLUGIN_NAME + " (ERROR) " + ChatColor.WHITE + message);
     }
-
 }

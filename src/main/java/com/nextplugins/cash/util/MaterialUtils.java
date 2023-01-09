@@ -18,12 +18,12 @@ public class MaterialUtils {
         } catch (Exception exception) {
             try {
                 val material = Material.valueOf("LEGACY_" + materialName);
-                return new ItemStack(Bukkit.getUnsafe().fromLegacy(new org.bukkit.material.MaterialData(material, (byte) damage)));
+                return new ItemStack(
+                        Bukkit.getUnsafe().fromLegacy(new org.bukkit.material.MaterialData(material, (byte) damage)));
             } catch (Exception error) {
                 NextCash.getInstance().getLogger().warning("Material " + materialName + " is invalid!");
                 return null;
             }
         }
     }
-
 }

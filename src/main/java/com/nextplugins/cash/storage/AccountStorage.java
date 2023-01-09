@@ -18,8 +18,11 @@ import java.util.HashMap;
 @RequiredArgsConstructor
 public final class AccountStorage {
 
-    @Getter private final AccountDAO accountDAO;
-    @Getter private final HashMap<String, Account> cache = new HashMap<>();
+    @Getter
+    private final AccountDAO accountDAO;
+
+    @Getter
+    private final HashMap<String, Account> cache = new HashMap<>();
 
     public void init() {
         accountDAO.createTable();
@@ -82,10 +85,10 @@ public final class AccountStorage {
         Account account = findAccountCache(player.getName());
         if (account == null) {
             account = Account.builder()
-                .owner(player.getName())
-                .balance(GeneralConfiguration.get(GeneralConfiguration::initialBalance))
-                .receiveCash(true)
-                .build();
+                    .owner(player.getName())
+                    .balance(GeneralConfiguration.get(GeneralConfiguration::initialBalance))
+                    .receiveCash(true)
+                    .build();
             put(account);
         }
 
@@ -112,5 +115,4 @@ public final class AccountStorage {
     public void put(@NotNull Account account) {
         cache.put(account.getOwner(), account);
     }
-
 }

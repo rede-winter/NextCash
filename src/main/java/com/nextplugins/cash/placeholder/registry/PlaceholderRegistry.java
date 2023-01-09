@@ -12,14 +12,12 @@ public class PlaceholderRegistry {
 
     public void register() {
         if (!Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
-            plugin.getLogger().warning(
-                "Dependência não encontrada (PlaceholderAPI). A placeholder não poderá ser usada."
-            );
+            plugin.getLogger()
+                    .warning("Dependência não encontrada (PlaceholderAPI). A placeholder não poderá ser usada.");
             return;
         }
 
         new CashPlaceholderHook(plugin).register();
         plugin.getLogger().info("Placeholder registrada com sucesso!");
     }
-
 }

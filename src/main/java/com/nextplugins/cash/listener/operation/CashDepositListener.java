@@ -29,15 +29,12 @@ public final class CashDepositListener implements Listener {
             event.setCancelled(true);
             sender.sendMessage(MessageValue.get(MessageValue::invalidTarget));
             return;
-
         }
 
         targetAccount.depositAmount(amount);
 
         sender.sendMessage(MessageValue.get(MessageValue::addAmount)
-            .replace("$player", targetAccount.getOwner())
-            .replace("$amount", NumberUtil.format(amount))
-        );
+                .replace("$player", targetAccount.getOwner())
+                .replace("$amount", NumberUtil.format(amount)));
     }
-
 }

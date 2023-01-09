@@ -49,5 +49,4 @@ public final class CashPlaceholderHook extends PlaceholderExpansion {
 
         return "Placeholder inválida";
     }
-
 }

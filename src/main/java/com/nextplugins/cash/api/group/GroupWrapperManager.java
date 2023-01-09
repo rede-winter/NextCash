@@ -22,7 +22,8 @@ public final class GroupWrapperManager {
         }
 
         wrapper.setup();
-        logger.info("[Grupos] Integrado com sucesso com o plugin '" + wrapper.getClass().getSimpleName() + "'");
+        logger.info("[Grupos] Integrado com sucesso com o plugin '"
+                + wrapper.getClass().getSimpleName() + "'");
     }
 
     public Group getGroup(String playerName) {
@@ -30,5 +31,4 @@ public final class GroupWrapperManager {
 
         return wrapper.getGroup(playerName);
     }
-
 }

@@ -21,21 +21,29 @@ import java.util.function.Function;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class GeneralConfiguration implements ConfigurationInjectable {
 
-    @Getter private static final GeneralConfiguration instance = new GeneralConfiguration();
+    @Getter
+    private static final GeneralConfiguration instance = new GeneralConfiguration();
 
     // configuration
 
-    @ConfigField("configuration.format-type") private String formatType;
-    @ConfigField("configuration.initial-cash") private double initialBalance;
+    @ConfigField("configuration.format-type")
+    private String formatType;
+
+    @ConfigField("configuration.initial-cash")
+    private double initialBalance;
 
     // check
 
-    @ConfigField("configuration.check.enable") private boolean checkSystemEnabled;
-    @ConfigField("configuration.check.min-value") private double checkMinimumValue;
-    @ConfigField("configuration.check.item") private ConfigurationSection checkItem;
+    @ConfigField("configuration.check.enable")
+    private boolean checkSystemEnabled;
+
+    @ConfigField("configuration.check.min-value")
+    private double checkMinimumValue;
+
+    @ConfigField("configuration.check.item")
+    private ConfigurationSection checkItem;
 
     public static <T> T get(Function<GeneralConfiguration, T> function) {
         return function.apply(instance);
     }
-
 }

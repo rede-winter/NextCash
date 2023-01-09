@@ -32,13 +32,15 @@ public final class SQLProvider {
         if (Objects.requireNonNull(sqlType).equalsIgnoreCase("mysql")) {
             ConfigurationSection mysqlSection = databaseConfiguration.getConfigurationSection("mysql");
 
-            sqlConnector = mysqlDatabaseType(Objects.requireNonNull(mysqlSection)).connect();
+            sqlConnector =
+                    mysqlDatabaseType(Objects.requireNonNull(mysqlSection)).connect();
 
             logger.info("Conexão com o banco de dados (MySQL) realizada com sucesso.");
         } else if (sqlType.equalsIgnoreCase("sqlite")) {
             ConfigurationSection sqliteSection = databaseConfiguration.getConfigurationSection("sqlite");
 
-            sqlConnector = sqliteDatabaseType(Objects.requireNonNull(sqliteSection)).connect();
+            sqlConnector =
+                    sqliteDatabaseType(Objects.requireNonNull(sqliteSection)).connect();
 
             logger.info("Conexão com o banco de dados (SQLite) realizada com sucesso.");
             logger.warn("Recomendamos o uso do banco de dados MySQL.");
@@ -49,22 +51,20 @@ public final class SQLProvider {
         }
 
         return sqlConnector;
-
     }
 
     private SQLDatabaseType sqliteDatabaseType(ConfigurationSection section) {
         return SQLiteDatabaseType.builder()
-            .file(new File(plugin.getDataFolder(), Objects.requireNonNull(section.getString("file"))))
-            .build();
+                .file(new File(plugin.getDataFolder(), Objects.requireNonNull(section.getString("file"))))
+                .build();
     }
 
     private SQLDatabaseType mysqlDatabaseType(ConfigurationSection section) {
         return MySQLDatabaseType.builder()
-            .address(section.getString("address"))
-            .username(section.getString("username"))
-            .password(section.getString("password"))
-            .database(section.getString("database"))
-            .build();
+                .address(section.getString("address"))
+                .username(section.getString("username"))
+                .password(section.getString("password"))
+                .database(section.getString("database"))
+                .build();
     }
-
 }

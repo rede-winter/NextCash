@@ -25,13 +25,10 @@ public final class CommandRegistry {
                 else return value;
             });
 
-            frame.registerCommands(
-                    new CashCommand(
-                            plugin.getAccountStorage(),
-                            plugin.getRankingStorage(),
-                            plugin.getRankingBootstrap().getLocations()
-                    )
-            );
+            frame.registerCommands(new CashCommand(
+                    plugin.getAccountStorage(),
+                    plugin.getRankingStorage(),
+                    plugin.getRankingBootstrap().getLocations()));
 
             final MessageHolder messageHolder = frame.getMessageHolder();
 
@@ -46,5 +43,4 @@ public final class CommandRegistry {
             plugin.getTextLogger().error("Não foi possível registrar os comandos.");
         }
     }
-
 }

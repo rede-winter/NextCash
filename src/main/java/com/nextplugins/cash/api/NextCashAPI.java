@@ -26,12 +26,9 @@ public final class NextCashAPI {
      */
     @Deprecated
     public Set<Account> findAccountsByFilter(Predicate<Account> filter) {
-        return NextCash.getInstance().getAccountStorage()
-            .getCache()
-            .values()
-            .stream()
-            .filter(filter)
-            .collect(Collectors.toSet());
+        return NextCash.getInstance().getAccountStorage().getCache().values().stream()
+                .filter(filter)
+                .collect(Collectors.toSet());
     }
 
     /**
@@ -54,5 +51,4 @@ public final class NextCashAPI {
     public Optional<Account> findAccountByPlayer(Player player) {
         return Optional.of(NextCash.getInstance().getAccountStorage().findAccount(player));
     }
-
 }

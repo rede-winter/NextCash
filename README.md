@@ -9,20 +9,20 @@ uma Wiki) para desenvolvedores. [Prints in-game](https://imgur.com/gallery/QAf28
 
 ## Comandos
 
-|Comando         |Descrição                      |Permissão                    |
-|----------------|-------------------------------|-----------------------------|
-|/cash           |Veja a sua, ou a quantia de cash de outra pessoa.|Nenhuma    |
-|/cash enviar    |Envie uma quantia de cash para outra pessoa.|`nextcash.command.pay`|
-|/cash top       |Veja os jogadores com as maiores fortunas do servidor.|`nextcash.command.top`|
-|/cash ajuda     |Veja os comandos disponíveis do sistema.|`nextcash.command.help`|
-|/cash add       |Adicione uma quantia de cash para alguém.|`nextcash.command.add`|
-|/cash set       |Altere a quantia de cash de alguém.|`nextcash.command.set`|
-|/cash remove    |Remova uma quantia de cash de alguém.|`nextcash.command.remove`|
-|/cash reset     |Zere o saldo de cash de algum jogador.|`nextcash.command.reset`|
-|/cash npc       |Veja a ajuda para o sistema de NPCs.|`nextcash.command.npc.help`|
-|/cash npc add   |Adicione uma localização de spawn de NPC.|`nextcash.command.npc.add`|
-|/cash npc remove|Remova uma localização de spawn de NPC.|`nextcash.command.npc.remove`|
-|/cash check     |Veja os comandos do sistema de cheque.|`nextcash.command.check`|
+| Comando          | Descrição                                              | Permissão                     |
+|------------------|--------------------------------------------------------|-------------------------------|
+| /cash            | Veja a sua, ou a quantia de cash de outra pessoa.      | Nenhuma                       |
+| /cash enviar     | Envie uma quantia de cash para outra pessoa.           | `nextcash.command.pay`        |
+| /cash top        | Veja os jogadores com as maiores fortunas do servidor. | `nextcash.command.top`        |
+| /cash ajuda      | Veja os comandos disponíveis do sistema.               | `nextcash.command.help`       |
+| /cash add        | Adicione uma quantia de cash para alguém.              | `nextcash.command.add`        |
+| /cash set        | Altere a quantia de cash de alguém.                    | `nextcash.command.set`        |
+| /cash remove     | Remova uma quantia de cash de alguém.                  | `nextcash.command.remove`     |
+| /cash reset      | Zere o saldo de cash de algum jogador.                 | `nextcash.command.reset`      |
+| /cash npc        | Veja a ajuda para o sistema de NPCs.                   | `nextcash.command.npc.help`   |
+| /cash npc add    | Adicione uma localização de spawn de NPC.              | `nextcash.command.npc.add`    |
+| /cash npc remove | Remova uma localização de spawn de NPC.                | `nextcash.command.npc.remove` |
+| /cash check      | Veja os comandos do sistema de cheque.                 | `nextcash.command.check`      |
 
 ## Download
 
@@ -45,7 +45,8 @@ habilitado pela primeira vez.
 
 ### Tecnologias usadas
 
-- [PDM](https://github.com/knightzmc/pdm) - Faz a transferência de dependências de desenvolvimento durante o carregamento do
+- [PDM](https://github.com/knightzmc/pdm) - Faz a transferência de dependências de desenvolvimento durante o
+  carregamento do
   servidor.
 - [Lombok](https://projectlombok.org/) - Gera “getters”, “setters” e outros métodos uteis durante a compilação através
   de anotações.
