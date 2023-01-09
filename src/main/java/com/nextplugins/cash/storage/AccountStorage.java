@@ -1,7 +1,7 @@
 package com.nextplugins.cash.storage;
 
 import com.nextplugins.cash.NextCash;
-import com.nextplugins.cash.api.model.account.Account;
+import com.nextplugins.cash.api.model.Account;
 import com.nextplugins.cash.configuration.GeneralConfiguration;
 import com.nextplugins.cash.dao.AccountDAO;
 import lombok.Getter;

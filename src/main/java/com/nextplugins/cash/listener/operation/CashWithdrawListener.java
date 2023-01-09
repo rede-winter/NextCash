@@ -17,7 +17,6 @@ public final class CashWithdrawListener implements Listener {
 
     @EventHandler(priority = EventPriority.MONITOR)
     public void onCashWithdraw(CashWithdrawEvent event) {
-
         if (event.isCancelled()) return;
 
         val sender = event.getSender();

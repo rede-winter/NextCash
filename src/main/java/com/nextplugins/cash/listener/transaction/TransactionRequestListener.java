@@ -21,7 +21,6 @@ public final class TransactionRequestListener implements Listener {
 
     @EventHandler(priority = EventPriority.MONITOR)
     public void onTransactionRequest(TransactionRequestEvent event) {
-
         if (event.isCancelled()) return;
 
         val player = event.getPlayer();
@@ -30,19 +29,18 @@ public final class TransactionRequestListener implements Listener {
 
         val account = accountStorage.findAccount(player);
         val targetAccount = accountStorage.findAccount(target);
-        if (targetAccount == null) {
 
+        if (targetAccount == null) {
             event.setCancelled(true);
             player.sendMessage(MessageValue.get(MessageValue::invalidTarget));
             return;
-
         }
 
         if (!targetAccount.isReceiveCash()) {
             event.setCancelled(true);
 
             player.sendMessage(MessageValue.get(MessageValue::toggledOff)
-                .replace("$player", Objects.requireNonNull(target.getName()))
+                    .replace("$player", Objects.requireNonNull(target.getName()))
             );
 
             return;
@@ -53,13 +51,13 @@ public final class TransactionRequestListener implements Listener {
             account.withdrawAmount(amount);
 
             player.sendMessage(
-                MessageValue.get(MessageValue::paid).replace("$player", Objects.requireNonNull(target.getName()))
-                    .replace("$amount", NumberUtil.format(amount))
+                    MessageValue.get(MessageValue::paid).replace("$player", Objects.requireNonNull(target.getName()))
+                            .replace("$amount", NumberUtil.format(amount))
             );
 
             if (target.isOnline()) Objects.requireNonNull(target.getPlayer()).sendMessage(
-                MessageValue.get(MessageValue::received).replace("$player", player.getName())
-                    .replace("$amount", NumberUtil.format(amount))
+                    MessageValue.get(MessageValue::received).replace("$player", player.getName())
+                            .replace("$amount", NumberUtil.format(amount))
             );
 
             Bukkit.getPluginManager().callEvent(new TransactionCompletedEvent(player, target, amount));
@@ -68,5 +66,4 @@ public final class TransactionRequestListener implements Listener {
             player.sendMessage(MessageValue.get(MessageValue::insufficientAmount));
         }
     }
-
 }

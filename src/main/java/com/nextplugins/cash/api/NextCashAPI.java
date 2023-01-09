@@ -1,7 +1,7 @@
 package com.nextplugins.cash.api;
 
 import com.nextplugins.cash.NextCash;
-import com.nextplugins.cash.api.model.account.Account;
+import com.nextplugins.cash.api.model.Account;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

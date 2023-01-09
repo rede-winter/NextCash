@@ -1,10 +1,8 @@
 package com.nextplugins.cash.api.group;
 
 import com.nextplugins.cash.NextCash;
-import com.nextplugins.cash.api.group.impl.NextTestServerGroupWrapper;
 import com.nextplugins.cash.api.group.impl.VaultGroupWrapper;
 import lombok.val;
-import org.bukkit.Bukkit;
 
 /**
  * @author Yuhtin
@@ -15,9 +13,7 @@ public final class GroupWrapperManager {
     private GroupWrapper wrapper;
 
     public void init() {
-        val pluginManager = Bukkit.getPluginManager();
-        if (pluginManager.isPluginEnabled("NextTestServer")) wrapper = new NextTestServerGroupWrapper();
-        else if (pluginManager.isPluginEnabled("Vault")) wrapper = new VaultGroupWrapper();
+        wrapper = new VaultGroupWrapper();
 
         val logger = NextCash.getInstance().getLogger();
         if (wrapper == null) {

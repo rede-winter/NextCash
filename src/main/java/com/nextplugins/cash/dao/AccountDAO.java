@@ -1,7 +1,7 @@
 package com.nextplugins.cash.dao;
 
 import com.henryfabio.sqlprovider.executor.SQLExecutor;
-import com.nextplugins.cash.api.model.account.Account;
+import com.nextplugins.cash.api.model.Account;
 import com.nextplugins.cash.dao.adapter.AccountAdapter;
 import lombok.RequiredArgsConstructor;
 

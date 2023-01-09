@@ -33,11 +33,10 @@ dependencies {
 
     compileOnly 'com.github.PlaceholderAPI:PlaceholderAPI:2.10.9'
     compileOnly 'com.gmail.filoghost.holographicdisplays:holographicdisplays-api:2.4.0'
-    compileOnly 'net.citizensnpcs:citizens:2.0.27-SNAPSHOT'
     compileOnly 'com.github.MilkBowl:VaultAPI:1.7'
+
     compileOnly fileTree('libs')
 
-    implementation 'com.github.Yuhtin:update-checker:1.2'
     implementation 'com.github.HenryFabio.configuration-injector:bukkit:1.0.2'
     implementation 'com.github.SaiintBrisson.command-framework:bukkit:1.2.0'
 
@@ -56,8 +55,7 @@ bukkit {
     authors = ['NextPlugins']
     website = 'https://github.com/NextPlugins'
     version = "${project.version}"
-    softDepend = ['Citizens', 'HolographicDisplays', 'PlaceholderAPI', 'Vault', 'NextTestServer', 'CMI']
-    loadBefore = ['NextUpdater']
+    softDepend = ['HolographicDisplays', 'DecentHolograms', 'PlaceholderAPI', 'Vault']
     apiVersion = '1.13'
 }
 
@@ -83,6 +81,6 @@ shadowJar {
 compileJava {
     options.encoding('UTF-8')
 
-    sourceCompatibility('1.8')
-    targetCompatibility('1.8')
+    sourceCompatibility('11')
+    targetCompatibility('11')
 }

@@ -26,12 +26,11 @@ public final class CommandRegistry {
             });
 
             frame.registerCommands(
-                new CashCommand(
-                    plugin,
-                    plugin.getAccountStorage(),
-                    plugin.getRankingStorage(),
-                    plugin.getLocationManager()
-                )
+                    new CashCommand(
+                            plugin.getAccountStorage(),
+                            plugin.getRankingStorage(),
+                            plugin.getRankingBootstrap().getLocations()
+                    )
             );
 
             final MessageHolder messageHolder = frame.getMessageHolder();

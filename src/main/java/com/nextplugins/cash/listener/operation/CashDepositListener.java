@@ -17,7 +17,6 @@ public final class CashDepositListener implements Listener {
 
     @EventHandler(priority = EventPriority.MONITOR)
     public void onCashDeposit(CashDepositEvent event) {
-
         if (event.isCancelled()) return;
 
         val sender = event.getSender();

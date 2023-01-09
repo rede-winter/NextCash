@@ -10,10 +10,12 @@ import com.henryfabio.minecraft.inventoryapi.viewer.configuration.border.Border;
 import com.henryfabio.minecraft.inventoryapi.viewer.configuration.impl.ViewerConfigurationImpl;
 import com.henryfabio.minecraft.inventoryapi.viewer.impl.paged.PagedViewer;
 import com.nextplugins.cash.NextCash;
+import com.nextplugins.cash.api.model.Account;
 import com.nextplugins.cash.configuration.RankingConfiguration;
 import com.nextplugins.cash.storage.RankingStorage;
 import com.nextplugins.cash.util.ItemBuilder;
 import com.nextplugins.cash.util.TimeUtils;
+import com.nextplugins.cash.util.text.NumberUtil;
 import lombok.val;
 
 import java.util.List;
@@ -24,11 +26,7 @@ public final class RankingInventory extends PagedInventory {
     private final RankingStorage rankingStorage = NextCash.getInstance().getRankingStorage();
 
     public RankingInventory() {
-        super(
-            "nextcash.ranking.inventory",
-            RankingConfiguration.get(RankingConfiguration::inventoryModelTitle),
-            4 * 9
-        );
+        super("nextcash.ranking.inventory", RankingConfiguration.get(RankingConfiguration::inventoryModelTitle), 4 * 9);
     }
 
     @Override
@@ -53,7 +51,9 @@ public final class RankingInventory extends PagedInventory {
 
         val position = new AtomicInteger(1);
 
-        rankingStorage.getRankingAccounts().forEach((owner, balance) -> {
+        for (Account account : rankingStorage.getRankingAccounts()) {
+            final String owner = account.getOwner();
+            final String balance = NumberUtil.letterFormat(account.getBalance());
 
             val value = position.getAndIncrement();
             items.add(() -> {
@@ -68,33 +68,27 @@ public final class RankingInventory extends PagedInventory {
 
                 List<String> replacedLore = Lists.newArrayList();
                 for (val lore : headLore) {
-                    replacedLore.add(lore
-                            .replace("$player", owner)
+                    replacedLore.add(lore.replace("$player", owner)
                             .replace("$amount", balance)
-                            .replace("$position", String.valueOf(value))
-                    );
+                            .replace("$position", String.valueOf(value)));
                 }
 
-                return InventoryItem.of(
-                        new ItemBuilder(owner)
-                                .name(replacedDisplayName)
-                                .setLore(replacedLore)
-                                .wrap()
-                );
+                return InventoryItem.of(new ItemBuilder(owner)
+                        .name(replacedDisplayName)
+                        .setLore(replacedLore)
+                        .wrap());
             });
-        });
+        }
 
         return items;
     }
 
     private InventoryItem restTimeUpdate() {
         return InventoryItem.of(new ItemBuilder("MHF_QUESTION")
-            .name("&6Próxima atualização")
-            .setLore(
-                "&7A próxima atualização do ranking será em",
-                "&e" + TimeUtils.format(rankingStorage.getNextUpdate() - System.currentTimeMillis())
-            )
-            .wrap()
-        );
+                .name("&6Próxima atualização")
+                .setLore(
+                        "&7A próxima atualização do ranking será em",
+                        "&e" + TimeUtils.format(rankingStorage.getNextUpdate() - System.currentTimeMillis()))
+                .wrap());
     }
 }

@@ -16,5 +16,4 @@ public final class UserDisconnectListener implements Listener {
         accountStorage.saveOne(event.getPlayer().getName());
         accountStorage.getCache().remove(event.getPlayer().getName());
     }
-
 }

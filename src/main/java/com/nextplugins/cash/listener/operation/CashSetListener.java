@@ -17,7 +17,6 @@ public final class CashSetListener implements Listener {
 
     @EventHandler(priority = EventPriority.MONITOR)
     public void onCashSet(CashSetEvent event) {
-
         if (event.isCancelled()) return;
 
         val sender = event.getSender();
