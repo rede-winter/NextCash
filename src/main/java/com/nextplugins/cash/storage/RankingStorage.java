@@ -33,11 +33,6 @@ public final class RankingStorage {
         val plugin = NextCash.getInstance();
         val accounts = plugin.getAccountDAO().selectAll("ORDER BY balance DESC LIMIT 10");
 
-        System.out.println("--------------------------------------");
-        for (Account account : accounts) {
-            System.out.println(account.getOwner() + " - " + account.getBalance());
-        }
-
         if (!accounts.isEmpty()) {
             rankingAccounts.clear();
 

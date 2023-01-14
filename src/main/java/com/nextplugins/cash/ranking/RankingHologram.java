@@ -35,10 +35,6 @@ public class RankingHologram {
         lines.add("&7Atualizado a cada 10 minutos");
         lines.add("");
 
-        for (Account account : accounts) {
-            System.out.println(account.getOwner() + " - " + NumberUtil.letterFormat(account.getBalance()));
-        }
-
         for (int index = 0; index < accounts.size(); index++) {
             final Account account = accounts.get(index);
             final int position = index + 1;
